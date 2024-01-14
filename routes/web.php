@@ -1,6 +1,6 @@
 <?php
 
-use App\Livewire\ClassComponent;
+use App\Livewire\LessonsComponent;
 use App\Livewire\HomeComponent;
 use Illuminate\Support\Facades\Route;
 
@@ -24,5 +24,5 @@ Auth::routes();
 Route::get('/home', HomeComponent::class)->name('home');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/classes', ClassComponent::class)->name('classes');
+    Route::get('/lessons', LessonsComponent::class)->name('lessons');
 });
