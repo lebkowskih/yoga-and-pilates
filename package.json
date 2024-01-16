@@ -16,6 +16,8 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^6.5.1",
         "fullcalendar": "^6.1.10",
-        "sass-loader": "^13.3.3"
+        "jquery": "^3.7.1",
+        "sass-loader": "^13.3.3",
+        "select2": "^4.1.0-rc.0"
     }
 }

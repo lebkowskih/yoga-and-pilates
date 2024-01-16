@@ -16,10 +16,13 @@
 @import "@fortawesome/fontawesome-free/css/solid.css";
 @import "@fortawesome/fontawesome-free/css/brands.css";
 
+//Select2
+@import "select2/dist/css/select2.css";
+
 body {
     font-family: "Poppins", sans-serif;
     background-color: #000;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 #hero {
