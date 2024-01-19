@@ -13,5 +13,7 @@ class Lesson extends Model
         'name',
         'start_date',
         'end_date',
+        'price',
+        'clients_limit',
     ];
 }

@@ -19,6 +19,15 @@
 //Select2
 @import "select2/dist/css/select2.css";
 
+//Tempus-Dominus
+@import "@eonasdan/tempus-dominus/dist/css/tempus-dominus.css";
+
+//Toastr
+@import "toastr/toastr.scss";
+
+#toast-container > .toast-success {
+    background-color: black;
+}
 body {
     font-family: "Poppins", sans-serif;
     background-color: #000;

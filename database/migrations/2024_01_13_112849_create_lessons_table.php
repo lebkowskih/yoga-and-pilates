@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
+            $table->float('price');
+            $table->integer('clients_limit');
             $table->timestamps();
         });
     }
