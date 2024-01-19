@@ -10,6 +10,8 @@ import select2 from "select2/dist/js/select2";
 import { TempusDominus, DateTime } from "@eonasdan/tempus-dominus";
 import { Modal } from "bootstrap";
 import toastr from "toastr";
+import bootstrap5Plugin from "@fullcalendar/bootstrap5"
+import tippy from "tippy.js";
 
 window.Calendar = Calendar;
 window.dayGridPlugin = dayGridPlugin;
@@ -17,6 +19,7 @@ window.timeGridPlugin = timeGridPlugin;
 window.listPlugin = listPlugin;
 window.interactionPlugin = interactionPlugin;
 window.plLocale = plLocale;
+window.bootstrap5Plugin = bootstrap5Plugin;
 window.$ = $;
 select2(window, $);
 window.TempusDominus = TempusDominus;
@@ -26,3 +29,4 @@ toastr.options = {
     "positionClass": "toast-bottom-right",
 };
 window.toastr = toastr;
+window.tippy = tippy;

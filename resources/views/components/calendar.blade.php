@@ -5,18 +5,20 @@
         locale: 'pl',
         themeSystem: 'bootstrap5',
         plugins: [
-            dayGridPlugin, interactionPlugin
+            dayGridPlugin, interactionPlugin, bootstrap5Plugin
         ],
+        themeSystem: 'bootstrap5',
         initialView: 'dayGridMonth',
         weekends: true,
-        selectable: true,
-        dateClick: function() {
-            
-        }
+        eventClick: function (info) {
+        },
+        displayEventEnd: true,
+        eventColor: '#000000',
+        eventDisplay: 'block',
+        events: '{{ route('events') }}'
     });
-
     calendar.render();
 </script>
 
-<div class="col-8 bg-white" id="calendar">
+<div class="bg-white" id="calendar">
 </div>

@@ -16,10 +16,13 @@
     "dependencies": {
         "@eonasdan/tempus-dominus": "^6.9.4",
         "@fortawesome/fontawesome-free": "^6.5.1",
+        "@fullcalendar/bootstrap5": "^6.1.10",
+        "bootstrap-icons": "^1.11.3",
         "fullcalendar": "^6.1.10",
         "jquery": "^3.7.1",
         "sass-loader": "^13.3.3",
         "select2": "^4.1.0-rc.0",
+        "tippy.js": "^6.3.7",
         "toastr": "^2.1.4"
     }
 }

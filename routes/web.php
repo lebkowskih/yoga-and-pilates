@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AjaxController;
 use App\Livewire\HomeComponent;
 use App\Livewire\ShowLessons;
 use Illuminate\Support\Facades\Route;
@@ -25,4 +26,5 @@ Route::get('/home', HomeComponent::class)->name('home');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/lessons', ShowLessons::class)->name('lessons');
+    Route::get('/events', [AjaxController::class, 'getLessons'])->name('events');
 });
