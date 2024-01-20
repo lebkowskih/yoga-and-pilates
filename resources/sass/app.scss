@@ -95,3 +95,9 @@ body {
 .modal-title {
     --bs-heading-color: black;
 }
+
+.tippy-box[data-theme~="tomato"] {
+    background-color: black;
+    color: white;
+    border: 1px solid #ededed;
+}

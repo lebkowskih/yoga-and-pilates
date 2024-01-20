@@ -10,13 +10,26 @@
         themeSystem: 'bootstrap5',
         initialView: 'dayGridMonth',
         weekends: true,
-        eventClick: function (info) {
+        eventDidMount: function (info) {
+            tippy(info.el, {
+                theme: 'tomato',
+                trigger: 'click',
+                placement: 'bottom',
+                content: '<div style="\ text-align: center\"><p>Cena zajęć: ' + info.event.extendedProps.price + ' zł</p> <button wire>Test</button></div>',
+                allowHTML: true,
+                hideOnClick: false,
+                interactive: true,
+                animation: 'fade',
+                arrow: true,
+
+            });
         },
         displayEventEnd: true,
         eventColor: '#000000',
         eventDisplay: 'block',
         events: '{{ route('events') }}'
     });
+
     calendar.render();
 </script>
 
