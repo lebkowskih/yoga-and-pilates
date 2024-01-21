@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AjaxController;
+use App\Livewire\DashboardComponent;
 use App\Livewire\HomeComponent;
 use App\Livewire\ShowLessons;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,7 @@ Auth::routes();
 Route::get('/home', HomeComponent::class)->name('home');
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', DashboardComponent::class)->name('dashboard');
     Route::get('/lessons', ShowLessons::class)->name('lessons');
     Route::get('/events', [AjaxController::class, 'getLessons'])->name('events');
 });

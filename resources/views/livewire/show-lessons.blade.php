@@ -1,10 +1,10 @@
 <div class="d-flex">
     <div class="col-12">
         <div class="d-flex justify-content-center mb-4">
-            <a class="me-4">
+            <a class="me-4 @if($showCalendar) active @endif" wire:click="$set('showCalendar', true)">
                 <h5>{{ __('Kalendarz zajęć')}}</h5>
             </a>
-            <a class="me-4">
+            <a class="me-4 @if(! $showCalendar) active @endif" wire:click="$set('showCalendar', false)">
                 <h5>{{ __('Twoje zapisy')}}</h5>
             </a>
         </div>
@@ -53,7 +53,12 @@
         @endcan
         @can ('enroll', App\Models\Lesson::class)
         <!-- Client view -->
-        <x-calendar />
+            <div style="@if (! $showCalendar) display: none @endif">
+                <x-calendar/>
+            </div>
+            <div>
+                <!-- WIP: Lessons which user is enrolled -->
+            </div>
         @endcan
     </div>
 </div>

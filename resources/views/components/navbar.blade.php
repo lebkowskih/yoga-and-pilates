@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark navbar-expand-lg">
   <div class="container-fluid">
-    <a class="navbar-brand ms-2" href="#">
+    <a class="navbar-brand ms-2" href="{{ route('dashboard') }}">
         <img src="{{ asset('images/logo.png') }}" width="160" class="d-inline-block align-top" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">

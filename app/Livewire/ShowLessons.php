@@ -12,6 +12,7 @@ use Livewire\Component;
 class ShowLessons extends Component
 {
     public Collection $lessons;
+    public bool $showCalendar = true;
     private LessonRepositoryInterface $lessonRepositoryInterface;
 
     #[On('update-lessons')]
