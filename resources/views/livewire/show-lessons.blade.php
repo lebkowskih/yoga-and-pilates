@@ -1,5 +1,13 @@
 <div class="d-flex">
     <div class="col-12">
+        <div class="d-flex justify-content-center mb-4">
+            <a class="me-4">
+                <h5>{{ __('Kalendarz zajęć')}}</h5>
+            </a>
+            <a class="me-4">
+                <h5>{{ __('Twoje zapisy')}}</h5>
+            </a>
+        </div>
         @can('manage', App\Models\Lesson::class)
         <!-- Moderator view -->
         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#lessonFormModal" wire:click="$dispatch('create-lesson')">

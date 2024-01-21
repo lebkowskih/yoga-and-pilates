@@ -40,6 +40,10 @@
     });
 
     calendar.render();
+
+    window.addEventListener('refresh-events', () => {
+        calendar.refetchEvents();
+    });
 </script>
 
 <div wire:ignore class="bg-white" id="calendar">

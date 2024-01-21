@@ -42,5 +42,6 @@ class ShowLessons extends Component
     {
         $user = Auth::user();
         $user->lessons()->attach($lessonId, ['lesson_id' => $lessonId]);
+        $this->dispatch('refresh-events');
     }
 }
