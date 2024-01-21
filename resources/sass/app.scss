@@ -96,8 +96,18 @@ body {
     --bs-heading-color: black;
 }
 
-.tippy-box[data-theme~="tomato"] {
-    background-color: black;
+.tippy-box[data-theme~="tippyTheme"] {
+    background-color: #87676787;
     color: white;
-    border: 1px solid #ededed;
+    border: 1px solid #87676787;
+    border-radius: 3px;
+}
+
+div[data-tippy-root] {
+    width: 100%;
+    transform: translateX(0);
+}
+
+a {
+    cursor: pointer;
 }

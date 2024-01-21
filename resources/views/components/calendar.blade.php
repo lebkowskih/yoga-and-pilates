@@ -7,25 +7,34 @@
         plugins: [
             dayGridPlugin, interactionPlugin, bootstrap5Plugin
         ],
-        themeSystem: 'bootstrap5',
         initialView: 'dayGridMonth',
+        eventBackgroundColor: '#87676787',
+        eventBorderColor: '#87676787',
         weekends: true,
-        eventDidMount: function (info) {
-            tippy(info.el, {
-                theme: 'tomato',
-                trigger: 'click',
-                placement: 'bottom',
-                content: '<div style="\ text-align: center\"><p>Cena zajęć: ' + info.event.extendedProps.price + ' zł</p> <button wire>Test</button></div>',
-                allowHTML: true,
-                hideOnClick: false,
-                interactive: true,
-                animation: 'fade',
-                arrow: true,
+        eventDidMount: function (instance) {
+            if (!instance.event.extendedProps.isEnrolled) {
+                tippy(instance.el, {
+                    theme: 'tippyTheme',
+                    placement: 'bottom',
+                    content: '<div style="\ text-align: center\"><p>Cena zajęć: ' + instance.event.extendedProps.price + ' zł</p><a class="text-red" wire:click="$dispatch(\'enroll\', { lessonId: ' + instance.event.id + ' })">Zapisz się</a></div>',
+                    allowHTML: true,
+                    interactive: true,
+                    trigger: 'mouseenter',
+                    onShow(instance) {
+                        instance.setProps({trigger: 'click'});
+                    },
+                    onHide(instance) {
+                        instance.setProps({trigger: 'mouseenter'})
+                    }
+                });
+            }
 
-            });
+            if (instance.event.extendedProps.isEnrolled) {
+                instance.event.setProp('backgroundColor', 'red' );
+                instance.event.setProp('title' , instance.event.title + 'jesteś zapisany');
+            }
         },
         displayEventEnd: true,
-        eventColor: '#000000',
         eventDisplay: 'block',
         events: '{{ route('events') }}'
     });
@@ -33,5 +42,5 @@
     calendar.render();
 </script>
 
-<div class="bg-white" id="calendar">
+<div wire:ignore class="bg-white" id="calendar">
 </div>

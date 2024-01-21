@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Interfaces\LessonRepositoryInterface;
 use App\Models\Lesson;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
@@ -34,5 +35,12 @@ class ShowLessons extends Component
     public function emitEdit(Lesson $lesson): void
     {
         $this->dispatch('edit-lesson', $lesson)->to(LessonForm::class);
+    }
+
+    #[On('enroll')]
+    public function enroll(int $lessonId) : void
+    {
+        $user = Auth::user();
+        $user->lessons()->attach($lessonId, ['lesson_id' => $lessonId]);
     }
 }

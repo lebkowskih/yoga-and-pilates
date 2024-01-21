@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Interfaces\LessonRepositoryInterface;
 use App\Models\Lesson;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 
 class LessonRepository implements LessonRepositoryInterface 
@@ -13,11 +14,11 @@ class LessonRepository implements LessonRepositoryInterface
         return Lesson::all();
     }
 
-    public function getAllLessonsForCalendar()
+    public function getAvailableLessons()
     {
-        $allLessons = Lesson::all();
+        $availableLessons = Lesson::where('clients_limit', '>', 0)->where('start_date', '>', Carbon::now())->get();
 
-        $allLessons = $allLessons->map(function (Lesson $lesson) {
+        $availableLessons = $availableLessons->map(function (Lesson $lesson) {
             $lesson->title = $lesson->name;
             $lesson->start = $lesson->start_date;
             $lesson->end = $lesson->end_date;
@@ -26,6 +27,6 @@ class LessonRepository implements LessonRepositoryInterface
             return $lesson;
         });
 
-        return $allLessons;
+        return $availableLessons;
     }
 }
